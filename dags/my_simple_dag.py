@@ -32,7 +32,7 @@ def respond():
 with DAG('my_simple_dag',
          default_args=default_args,
          schedule_interval='*/10 * * * *') as dag:
-    opr_hello = BashOperator(task_id='say Hi', bash_command='echo "Hi!!!"')
+    opr_hello = BashOperator(task_id='say_hi', bash_command='echo "Hi!!!"')
     opr_greet = PythonOperator(task_id='greet', python_callable=greet)
     opr_sleep = BashOperator(task_id='sleep_me', bash_command='sleep 5')
     opr_respond = PythonOperator(task_id='respond', python_callable=respond)
